@@ -12,27 +12,32 @@ Vagrant.configure("2") do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://vagrantcloud.com/search.
-  config.vm.box = "ubuntu/trusty64"
-  config.vm.box_version = "20191107.0.0"
-  config.vm.provision "shell", name: "provision.sh", path: "provision.sh"
-  config.vm.hostname = "mbaanniS"
-  config.vm.post_up_message = "mbaanniS is running"
-  config.vm.synced_folder "~/Desktop/Bus" , "/home/vagrant/Bus"
+  config.vm.box = "debian/bookworm64"
+  config.vm.box_version = "12.20250126.1"
+
+  #first machine Server
   config.vm.define "mbaanniS" do |mbaanniS|
-    mbaanniS.vm.network "private_network" , ip: "192.168.56.110"
+    mbaanniS.vm.hostname = "mbaanniS"
+    mbaanniS.vm.network "private_network" , ip: "192.168.56.110", virtualbox__intnet: true
     mbaanniS.vm.provider "virtualbox" do |vm|
       vm.name = "mbaanniS"
       vm.cpus = 1
       vm.memory = 1024
     end
+
+    mbaanniS.vm.provision "shell", name: "provisionS.sh", path: "provisionS.sh"
+
   end
+  #second machine Worker
   config.vm.define "mbaanniSW" do |mbaanniSW|
-    mbaanniSW.vm.network "private_network" , ip: "192.168.56.111"
+    mbaanniSW.vm.hostname = "mbaanniSW"
+    mbaanniSW.vm.network "private_network" , ip: "192.168.56.111", virtualbox__intnet: true
     mbaanniSW.vm.provider "virtualbox" do |vm1|
       vm1.name = "mbaanniSW"
       vm1.cpus = 1
       vm1.memory = 1024
     end
+    mbaanniSW.vm.provision "shell", name: "provisionSW.sh", path: "provisionSW.sh"
   end
 
 
