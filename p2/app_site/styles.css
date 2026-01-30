@@ -1,0 +1,59 @@
+* { 
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #1e1e1e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #eee;
+}
+
+.container {
+  width: 100%;
+}
+
+#logo_and_text {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+#logo_and_text img {
+  height: 48px;
+}
+
+#logo_and_text h1 {
+  font-size: 3rem;
+  margin: 0;
+  font-weight: 600;
+}
+
+.box {
+  background-color: rgb(63,63,63);
+  border-top: 2px solid #555;
+  border-bottom: 2px solid #555;
+  padding: 30px 20px;
+  margin: 20px 0;
+}
+
+.box h2 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 300;
+}
+
+.info p {
+  margin: 6px 0;
+  font-size: 1rem;
+}
+
+.info span {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
