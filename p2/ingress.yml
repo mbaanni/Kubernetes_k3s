@@ -3,8 +3,8 @@ kind: Ingress
 metadata:
   name: apps-ingress
 spec:
+  ingressClassName: traefik
   rules:
-
   - http:
       paths:
       - path: /
